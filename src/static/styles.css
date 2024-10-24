@@ -1,0 +1,206 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Lexend:wght@100..900&display=swap");
+
+*,
+input,
+body {
+	font-family: "Lexend", sans-serif;
+}
+
+.title-cont {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	text-align: center;
+}
+
+.title {
+	display: block;
+	text-align: center;
+	background-color: transparent;
+	text-decoration: underline 5px solid green;
+	font-size: 65px;
+	font-family: "DM Serif Text", serif;
+	/* font-family: 'Times New Roman', Times, serif; */
+	margin-bottom: 40px;
+	align-items: top;
+	width: fit-content;
+	padding: 0 8px;
+}
+.highlight {
+	background-color: #ffcc9972;
+	font-family: "DM Serif Text", serif;
+}
+.cunderline {
+	text-decoration: underline;
+	text-decoration-color: #6e260e;
+}
+.yunderline {
+	text-decoration: underline;
+	text-decoration-color: #e15b9a;
+}
+.chunderline {
+	text-decoration: underline;
+	text-decoration-color: rgb(216, 165, 23);
+}
+
+body {
+	text-align: center;
+	overflow-y: auto;
+	margin: 10px; /* Remove default margins */
+	height: 100vh; /* Full viewport height */
+	font-family: "Times New Roman", Times, serif;
+	font-weight: bold;
+
+	/* Adding the background image */
+	background-image: url("https://static.vecteezy.com/system/resources/previews/002/290/504/original/seamless-pattern-with-colorful-fruit-and-vegetable-hand-drawn-illustration-design-natural-organic-food-wallpaper-and-fabric-design-vector.jpg");
+
+	/* Repeat the image horizontally and vertically */
+	background-repeat: repeat;
+
+	/* Optional: Set the size and position of the background */
+	background-size: auto; /* Default, keeps original size of the image */
+	background-position: top left; /* Start at the top-left corner */
+}
+
+main {
+	background-color: rgba(255, 255, 255, 0.65);
+	min-height: 100vh;
+	min-width: 100vw;
+}
+
+body,
+html {
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
+/*#mainbody{
+}*/
+
+.body {
+	text-align: center; /* Center text inside the div */
+	/*background-color: #f4f4f4; /* Add background if needed */
+	padding: 20px; /* Add padding for aesthetics */
+	border-radius: 10px; /* Optional rounded corners */
+	/*box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional shadow */
+	display: flex;
+	flex-direction: column;
+	justify-content: center; /* Horizontal centering */
+	align-items: bottom; /* Vertical centering */
+}
+
+#food {
+	background-color: greenyellow;
+}
+
+#search {
+	background-color: black;
+	color: white;
+}
+
+/* div {
+	font-size: 45px;
+} */
+
+#spacing {
+	height: 30px;
+}
+
+select option {
+	font-size: 18px;
+}
+
+select {
+	/* Increase width and height of the select box */
+	width: 300px;
+	height: 50px;
+
+	/* Increase font size */
+	font-size: 18px;
+
+	/* Add some padding */
+	padding: 10px;
+
+	/* Optional: Add custom styling like borders or background */
+	border: 2px solid #ccc;
+	border-radius: 5px;
+	background-color: #f9f9f9;
+
+	/* Optional: Cursor to pointer */
+	cursor: pointer;
+}
+
+#search {
+	width: 300px;
+	height: 50px;
+}
+
+table {
+	width: 100%;
+	border: 5px solid black;
+	line-height: 25px;
+	padding: 5px;
+	margin: 0px;
+}
+
+table td {
+	padding: 5px;
+	text-align: center;
+	border: 2.5px solid black;
+	vertical-align: baseline;
+	font-size: 1.3em;
+}
+
+table th {
+	vertical-align: baseline;
+	font-size: 1.3em;
+}
+
+#chips {
+	/* Adding the background image */
+	background-image: url("https://img.freepik.com/premium-vector/chips-pattern-seamless-background-vector_631970-12.jpg");
+
+	/* Repeat the image horizontally and vertically */
+	background-repeat: repeat;
+
+	/* Optional: Set the size and position of the background */
+	background-size: auto; /* Default, keeps original size of the image */
+	background-position: top left; /* Start at the top-left corner */
+}
+
+#yoghurt {
+	/* Adding the background image */
+	background-image: url("https://img.pikbest.com/wp/202344/homemade-yogurt-macro-close-up-of-creamy-strawberry-with-blueberries_9924373.jpg!bw700");
+
+	/* Repeat the image horizontally and vertically */
+	background-repeat: repeat;
+
+	/* Optional: Set the size and position of the background */
+	background-size: auto; /* Default, keeps original size of the image */
+	background-position: top left; /* Start at the top-left corner */
+}
+
+#cold_coffee {
+	/* Adding the background image */
+	background-image: url("https://i.pinimg.com/564x/c8/0c/4a/c80c4ae0ba5657d5b3deecc6f4ca33a6.jpg");
+
+	/* Repeat the image horizontally and vertically */
+	background-repeat: repeat;
+
+	/* Optional: Set the size and position of the background */
+	background-size: auto; /* Default, keeps original size of the image */
+	background-position: top left; /* Start at the top-left corner */
+}
+
+.product_body {
+	/* text-align: center;
+	overflow-y: auto;
+	margin: 10px; /* Remove default margins *
+	height: 100vh; Full viewport height */
+}
+
+.spacer {
+	height: 1em;
+}

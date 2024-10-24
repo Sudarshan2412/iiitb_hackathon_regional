@@ -1,0 +1,27 @@
+{% extends "layout.jinja" %}
+
+{% block title %}Product List{% endblock %}
+
+{% block content %}
+<h2>Product List</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Manufacturer</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for product in products %}
+        <tr>
+            <td>{{ product.product_name }}</td>
+            <td>{{ product.manufacturer }}</td>
+            <td>
+                <a href="/product/edit/{{ product.product_id }}">Edit</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

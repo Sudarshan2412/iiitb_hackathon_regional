@@ -1,0 +1,38 @@
+{% extends "layout.jinja" %}
+
+{% block title %}Food Safety Monitoring{% endblock %}
+
+{% block content %}
+<div class="body">
+    <div class="title-cont">
+        <div class="title">
+            <span class="highlight">
+                Food Facts Hub 🍱🕵️‍♂️
+            </span>
+        </div>
+    </div>
+
+    <h4>Pick your food!</h4>
+
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+
+    <div class="row">
+        {% for product in products %}
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img src="{{ product.homepage_image }}" class="card-img-top" alt="{{ product.name }}">
+                <div class="card-body">
+                    <h5 class="card-text">{{ product.product_name }}</h5>
+                    <a href="/p/{{ product.product_id }}">
+                        <button type="submit" class="btn btn-primary">Learn More!</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    </form>
+
+</div> {% endblock %}

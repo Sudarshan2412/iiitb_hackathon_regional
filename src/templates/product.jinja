@@ -1,0 +1,116 @@
+{% extends "layout.jinja" %}
+
+{% block title %}{{product.name}} | Details{% endblock %}
+
+{% block content %}
+<div style="object-fit: cover;background-image: url('{{product.background_image}}');">
+    <main id="prod">
+
+        <div class="product_body">
+            <a style="color:black;text-decoration:underline;" href="/">Other Products</a>
+            <div class="spacer"></div>
+            <div class="title" style="background-color: rgba(255, 192, 203, 0.596)" class="yunderline">
+                {{product.name}}
+            </div>
+
+            <div class="spacer"></div>
+            <div class="spacer"></div>
+
+            <h4><a style="font-size: 1.5em;color: black;" href="/chat/{{product.id}}/new">🤖 Ask our AI</a></h4>
+            <p style="">Ask away about concerning ingredients, suppliers <br>who are involved, and any other details
+                about
+                this
+                product.</p>
+
+            <div class="spacer"></div>
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Ingredient</th>
+                        <th>Supplier Name</th>
+                        <th>Supplier Location</th>
+                        <th>Supplier Rating</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for ingredient in product.ingredients %}
+                    <tr>
+                        <td>{{ ingredient.name }}</td>
+                        <td>{{ ingredient.supplier_name }}</td>
+                        <td>{{ ingredient.supplier_location }}</td>
+                        <td>{{ ingredient.supplier_rating }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <div id="qr-code-container">
+                <div id="qr-code"></div>
+                <div class="spacer"></div>
+                <button onclick="save()" style="padidng: 8px;">Share this QR code!</button>
+            </div>
+
+            <script src="/static/qrcode.min.js"></script>
+            <script src="https://github.com/niklasvh/html2canvas/releases/download/v1.4.1/html2canvas.min.js"></script>
+            <script defer>
+                const qrCode = document.getElementById("qr-code")
+                const qrManager = new QRCode(qrCode, window.location.href)
+
+                function save() {
+                    var element = document.getElementById("qr-code");
+                    var canvas = document.createElement("canvas");
+                    canvas.width = element.offsetWidth;
+                    canvas.height = element.offsetHeight;
+
+                    html2canvas(element, {}).then(function (canvas) {
+                        var ctx = canvas.getContext("2d");
+                        ctx.drawImage(canvas, 0, 0);
+                    });
+
+                    var dataURL = canvas.toDataURL();
+                    const link = document.createElement('a');
+                    link.href = dataURL;
+                    link.download = 'canvas-image.png'; // The name of the file to save
+                    link.click();
+                }
+            </script>
+
+
+            {# {{ json }} #}
+        </div>
+    </main>
+</div>
+
+<style>
+    #prod {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100vw;
+    }
+
+    .product_body {
+        max-width: 800px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    #qr-code {
+        padding: 16px;
+        background-color: white;
+        width: min-content;
+    }
+
+    #qr-code-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        padding: 24px;
+    }
+</style>
+
+{% endblock %}

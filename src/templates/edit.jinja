@@ -1,0 +1,52 @@
+{% extends "layout.jinja" %}
+
+{% block title %}Edit Product{% endblock %}
+
+{% block content %}
+<h2>Edit Product</h2>
+<form method="POST">
+    <div>
+        <label for="name">Product Name:</label>
+        <input type="text" id="name" name="name" value="{{ product['name'] }}" required>
+    </div>
+    <div>
+        <label for="manufacturer">Manufacturer:</label>
+        <input type="text" id="manufacturer" name="manufacturer" value="{{ product['manufacturer'] }}" required>
+    </div>
+
+    <h3>Manage Ingredients</h3>
+
+    <!-- Loop over existing ingredients and allow the user to delete them -->
+    <div id="ingredients">
+        {% for ingredient in ingredients %}
+            <div class="ingredient-item">
+                <label>Ingredient: {{ ingredient['name'] }}</label>
+                <input type="hidden" name="existing_ingredients[]" value="{{ ingredient['id'] }}">
+                <button type="submit" name="delete_ingredient" value="{{ ingredient['id'] }}">Delete Ingredient</button>
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- Add a new ingredient -->
+    <h4>Add Ingredient</h4>
+    <div>
+        <label for="ingredient_name">Ingredient Name:</label>
+        <input type="text" id="ingredient_name" name="ingredient_name">
+    </div>
+    <div>
+        <label for="supplier_id">Supplier:</label>
+        <select id="supplier_id" name="supplier_id">
+            {% for supplier in suppliers %}
+                <option value="{{ supplier['id'] }}">{{ supplier['name'] }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit" name="add_ingredient">Add Ingredient</button>
+
+    <hr>
+
+    <!-- Save or delete the product -->
+    <button type="submit" name="save">Save Changes</button>
+    <button type="submit" name="delete_product">Delete Product (and ingredients)</button>
+</form>
+{% endblock %}

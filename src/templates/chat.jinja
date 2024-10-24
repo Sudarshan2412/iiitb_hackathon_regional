@@ -1,0 +1,140 @@
+{% extends "layout.jinja" %}
+
+{% block title %}Chat{% endblock %}
+
+{% block content %}
+<div id="chat">
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+
+    <h2 style="margin: 0;">Chat with AI</h2>
+    <p style="margin: 0;">about</p>
+    <h4 style="margin: 0;">{{ product.name }}</h4>
+    <a style="color:black;text-decoration:underline;" href="/p/{{product.id}}">View Product</a>
+
+
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+
+    <div id="chat-box">
+        {% for message in chat_history %}
+        <div class="message {{ message.role }}">
+            <p class="role">
+                {% if message.role == 'user' %}
+                You
+                {% elif message.role == 'system' %}
+                AI
+                {% else %}
+                {{ message.role|capitalize }}:
+                {% endif %}
+            </p>
+            <p class="content">{{ message.content }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <form method="POST" id="chat-form">
+        <input type="text" name="message" placeholder="Type your message..." required>
+        <button type="submit">Send</button>
+    </form>
+</div>
+
+<!-- Inline style -->
+<style>
+    #chat {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #chat-box {
+        width: 100%;
+        max-width: 800px;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 20px;
+        max-height: 70vh;
+        overflow-y: auto;
+    }
+
+    .message {
+        padding: 16px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        background-color: #eaeaea43;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .message.user {
+        background-color: #eccdcd5b;
+        text-align: right;
+        margin-left: 10%;
+        border-radius: 10px;
+    }
+
+    .message.system {
+        background-color: #f0f0f0;
+        text-align: left;
+        margin-right: 10%;
+    }
+
+    .role {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .content {
+        margin: 0;
+    }
+
+    form {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 800px;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 1em !important;
+        margin-right: 10px;
+    }
+
+    button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    #chat-form {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        gap: 12px;
+        justify-content: stretch;
+    }
+
+    #chat-form input {
+        flex-grow: 1;
+        width: 100% !important;
+    }
+
+    #chat-form button {
+        flex-grow: 0;
+    }
+</style>
+
+{% endblock %}
